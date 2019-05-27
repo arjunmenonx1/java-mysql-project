@@ -6,10 +6,12 @@
  String password = request.getParameter("password"); 
  
 Class.forName ("com.mysql.jdbc.Driver"); 
-String url ="jdbc:mysql://loginwebapp-db.mysql.database.azure.com:3306/login?useSSL=true&requireSSL=false"; 
-Connection con = DriverManager.getConnection(url, "arjun@loginwebapp-db", "Qwerty@12345");
+String dburl = System.getenv("dburl");
+String user = System.getenv("dbuser");	String dbuser = System.getenv("dbuser");
+String password = System.getenv("dbpassword");	String dbpassword = System.getenv("dbpassword");
+Connection con = DriverManager.getConnection(dburl, dbuser, dbpassword);
 
- Statement st = con.createStatement(); 
+Statement st = con.createStatement(); 
  ResultSet rs; 
  rs = st.executeQuery("select * from USER where username='" + userName + "' and password='" + password + "'");
 	if (rs.next()) 
