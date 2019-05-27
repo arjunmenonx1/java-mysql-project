@@ -5,7 +5,7 @@
  
  String password = request.getParameter("password"); 
  
-Class.forName ("com.mysql.jdbc.Driver"); 
+Class.forName("com.mysql.jdbc.Driver");
 String dburl = System.getenv("dburl");
 String dbuser = System.getenv("dbuser");
 String dbpassword = System.getenv("dbpassword");
