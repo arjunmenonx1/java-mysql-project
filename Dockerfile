@@ -1,6 +1,6 @@
 FROM tomcat
-ENV dburl=${database_url}
-ENV dbuser=${database_user}
-ENV dbpassword=${database_password}
+ENV dburl=${dburl}
+ENV dbuser=${dbuser}
+ENV dbpassword=${dbpassword}
 ARG artifact
 COPY ./${artifact} /usr/local/tomcat/webapps
