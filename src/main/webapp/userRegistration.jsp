@@ -6,9 +6,10 @@
 	String lastName = request.getParameter("lastName"); 
 	String email = request.getParameter("email"); 
 	Class.forName ("com.mysql.jdbc.Driver"); 
-	
-        String url ="jdbc:mysql://loginwebapp-db.mysql.database.azure.com:3306/login?useSSL=true&requireSSL=false"; 
-        Connection con = DriverManager.getConnection(url, "arjun@loginwebapp-db", "Qwerty@12345");
+    String dburl = System.getenv("dburl");
+    String user = System.getenv("dbuser");	String dbuser = System.getenv("dbuser");
+    String password = System.getenv("dbpassword");	String dbpassword = System.getenv("dbpassword");
+Connection con = DriverManager.getConnection(dburl, dbuser, dbpassword);
 	Statement st = con.createStatement(); 
 	int i = st.executeUpdate("insert into USER(first_name, last_name, email, username, password, regdate) values ('" + firstName + "','" + lastName + "','" + email + "','" + userName + "','" + password + "', CURDATE())");
 	if (i > 0) { 
