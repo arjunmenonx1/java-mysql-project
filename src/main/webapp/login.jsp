@@ -9,6 +9,7 @@ Class.forName ("com.mysql.jdbc.Driver");
 String dburl = System.getenv("dburl");
 String dbuser = System.getenv("dbuser");
 String dbpassword = System.getenv("dbpassword");
+
 Connection con = DriverManager.getConnection(dburl, dbuser, dbpassword);
 
 Statement st = con.createStatement(); 
